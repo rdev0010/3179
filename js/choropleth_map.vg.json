@@ -1,0 +1,43 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Population in Australia States per sq km",
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "map.json",
+      "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+    },
+    "transform": [
+      {
+        "lookup": "properties.STE_NAME21",
+        "from": {
+          "data": {
+            "url": "../data/map_data.csv"
+          },
+          "key": "States",
+          "fields": ["Area", "2023"]
+        }
+      },
+      {"calculate": "datum['2023']/datum.Area", "as": "Population per sq km"}
+  ],
+    "mark": {
+      "type": "geoshape",
+      "stroke": "black", 
+      "strokeWidth": 0.5  
+    },
+    "encoding": {
+      "color": {
+        "field": "Population per sq km",
+        "type": "quantitative",
+        "scale": {
+          "type": "threshold",
+          "domain": [1, 2, 5, 10, 15, 30],
+          "range": ["#eff3ff","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]
+        }
+      },
+      "tooltip": [
+        {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+        {"field": "2023", "type": "quantitative", "title": "Population"},
+        {"field": "Population per sq km", "type": "quantitative", "format": ".2f"} ]
+    }
+  }
