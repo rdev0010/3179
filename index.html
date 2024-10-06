@@ -14,6 +14,7 @@
 <body>
   
 <div id="choropleth_map"></div>
+<div id="trends"></div>
 
 <script type="text/javascript">
 
@@ -23,7 +24,7 @@
     }).catch(console.error);
 
     var spec2 = "js/trends.vg.json";
-    vegaEmbed('#choropleth_map', spec2).then(function(result) {
+    vegaEmbed('#trends', spec2).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 </script>
