@@ -3,6 +3,19 @@
     "title": "Population in Australia States per sq km as of 2023",
     "width": 800,
     "height": 400,
+    "params": [
+          {
+            "name": "SelectedYear", 
+            "value": 2023,
+            "bind": {            
+              "input": "range",
+              "min": 2018,
+              "max": 2023,
+              "step": 1,
+              "name": "Year: "
+            }
+          }
+        ],
     "layer": [
       {
         "projection": {"type": "mercator"},
@@ -18,10 +31,11 @@
                 "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/map_data.csv"
               },
               "key": "States",
-              "fields": ["Area", "2023"]
+              "fields": ["Area", "2018", "2019", "2020", "2021", "2022", "2023"]
             }
           },
-          {"calculate": "datum['2023']/datum.Area", "as": "Population per sq km"}
+          {"calculate": "datum[SelectedYear + '']", "as": "Population"},
+          {"calculate": "datum.Population/datum.Area", "as": "Population per sq km"}
         ],
         "mark": {
           "type": "geoshape",
@@ -40,7 +54,7 @@
           },
           "tooltip": [
             {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
-            {"field": "2023", "type": "quantitative", "title": "Population"},
+            {"field": "Population", "type": "quantitative", "title": "Population", "format": ","},
             {"field": "Population per sq km", "type": "quantitative", "format": ".2f"} ]
         }
       },
