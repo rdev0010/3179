@@ -1,74 +1,74 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Population in Australia States per sq km as of 2023",
-    "width": 800,
-    "height": 400,
-    "params": [
-          {
-            "name": "SelectedYear", 
-            "value": 2023,
-            "bind": {            
-              "input": "range",
-              "min": 2018,
-              "max": 2023,
-              "step": 1,
-              "name": "Year: "
-            }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Population in Australia States per sq km",
+  "width": 800,
+  "height": 400,
+  "params": [
+        {
+          "name": "SelectedYear", 
+          "value": 2023,
+          "bind": {            
+            "input": "range",
+            "min": 2000,
+            "max": 2023,
+            "step": 1,
+            "name": "Year: "
           }
-        ],
-    "layer": [
-      {
-        "projection": {"type": "mercator"},
-        "data": {
-          "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/js/map.json",
-          "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
-        },
-        "transform": [
-          {
-            "lookup": "properties.STE_NAME21",
-            "from": {
-              "data": {
-                "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/map_data.csv"
-              },
-              "key": "States",
-              "fields": ["Area", "2018", "2019", "2020", "2021", "2022", "2023"]
-            }
-          },
-          {"calculate": "datum[SelectedYear + '']", "as": "Population"},
-          {"calculate": "datum.Population/datum.Area", "as": "Population per sq km"}
-        ],
-        "mark": {
-          "type": "geoshape",
-          "stroke": "black", 
-          "strokeWidth": 0.5  
-        },
-        "encoding": {
-          "color": {
-            "field": "Population per sq km",
-            "type": "quantitative",
-            "scale": {
-              "type": "threshold",
-              "domain": [1, 2, 5, 10, 15, 25],
-              "range": ["#eff3ff","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]
-            }
-          },
-          "tooltip": [
-            {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
-            {"field": "Population", "type": "quantitative", "title": "Population", "format": ","},
-            {"field": "Population per sq km", "type": "quantitative", "format": ".2f"} ]
         }
+      ],
+  "layer": [
+    {
+      "projection": {"type": "mercator"},
+      "data": {
+        "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/js/map.json",
+        "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
       },
-      {
-        "data": {
-          "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/js/ne_110m_graticules_15.json",
-          "format": {"type": "topojson", "feature": "ne_110m_graticules_15"}
+      "transform": [
+        {
+          "lookup": "properties.STE_NAME21",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/map_data.csv"
+            },
+            "key": "States",
+            "fields": ["Area", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"]
+          }
         },
-        "mark": {
-          "type": "geoshape",
-          "fill": null,
-          "stroke": "lightgrey"
-        }
+        {"calculate": "datum[SelectedYear + '']", "as": "Population"},
+        {"calculate": "datum.Population/datum.Area", "as": "Population per sq km"}
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "black", 
+        "strokeWidth": 0.5  
+      },
+      "encoding": {
+        "color": {
+          "field": "Population per sq km",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0.5, 1, 2, 5, 10, 15, 25],
+            "range": ["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]
+          }
+        },
+        "tooltip": [
+          {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+          {"field": "Population", "type": "quantitative", "title": "Population", "format": ","},
+          {"field": "Population per sq km", "type": "quantitative", "format": ".2f"} ]
       }
-    ]
-    
-  }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/js/ne_110m_graticules_15.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_15"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "lightgrey"
+      }
+    }
+  ]
+  
+}
