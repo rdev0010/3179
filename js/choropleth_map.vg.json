@@ -68,6 +68,32 @@
         "fill": null,
         "stroke": "lightgrey"
       }
+    },
+    {
+      "data": { 
+        "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/map_data.csv"
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": 38,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"}, 
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "text": {"field": "States", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['States'] == 'New South Wales' || datum['States'] == 'Victoria' || datum['States'] == 'Queensland' || datum['States'] == 'South Australia' || datum['States'] == 'Western Australia' || datum['States'] == 'Tasmania' ||  datum['States'] == 'Northern Territory' ||  datum['States'] == 'Australian Capital Territory'",
+            "value": 1 
+          },
+          "value": 0 
+        }
+      }
     }
   ]
   
