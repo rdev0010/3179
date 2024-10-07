@@ -6,6 +6,7 @@ body {
 .banner-container {
     overflow: hidden; /* Hide any overflow */
     width: 100%; /* Make it full width */
+	height: 200px;
 }
 
 .banner-container img {
