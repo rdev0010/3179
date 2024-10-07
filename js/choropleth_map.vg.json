@@ -21,16 +21,6 @@
       }
     }
   ],
-  "config": {
-    "background": "#F3FAF9",
-    "axis": {
-        "titleColor": "#527298",
-        "labelColor": "#527298",
-        "labelFont": "sans-serif",
-        "labelFontSize": 15,
-        "titleFontSize": 15
-    }
-  },
   "layer": [
     {
       "transform": [
@@ -106,6 +96,16 @@
         }
       }
     }
-  ]
+  ],
+  "config": {
+    "background": "#F3FAF9",
+    "axis": {
+        "titleColor": "#527298",
+        "labelColor": "#527298",
+        "labelFont": "sans-serif",
+        "labelFontSize": 15,
+        "titleFontSize": 15
+    }
+  }
   
 }
