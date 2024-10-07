@@ -3,6 +3,7 @@
     "title": "Yearly Population Change",
     "width": 500,
     "height": 400,
+    "background": "#F3FAF9",
     "data": {"url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_trend.csv"},
     "mark": "line",
     "encoding": {
