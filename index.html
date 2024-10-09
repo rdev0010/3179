@@ -7,8 +7,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 
   <!-- Pure CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
   
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
@@ -27,6 +27,9 @@
 
 <div id="trends"></div>
 <div id="choropleth_map"></div>
+<div id="donut"></div>
+<div id="pop_pyramid"></div>
+<div id="cob"></div>
 
 <script type="text/javascript">
 
@@ -36,9 +39,16 @@
     }).catch(console.error);
 
     var spec2 = "js/trends.vg.json";
-    vegaEmbed('#trends', spec2).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
+    vegaEmbed('#trends', spec2).then(function(result) {}).catch(console.error);
+
+    var spec3 = "js/donut.vg.json";
+    vegaEmbed('#donut', spec3).then(function(result) {}).catch(console.error);
+
+    var spec4 = "js/pop_pyramid.vg.json";
+    vegaEmbed('#pop_pyramid', spec4).then(function(result) {}).catch(console.error);
+
+    var spec5 = "js/cob.vg.json";
+    vegaEmbed('#cob', spec5).then(function(result) {}).catch(console.error);
 </script>
 
 </body>
