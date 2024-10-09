@@ -1,0 +1,15 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Components of Population Change",
+    "width": 400,
+    "height": 300,
+    "background": "#F3FAF9",
+    "data": {
+      "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_change.csv"
+    },
+    "mark": {"type": "arc", "innerRadius": 50},
+    "encoding": {
+      "theta": {"field": "Population", "type": "quantitative"},
+      "color": {"field": "Components of Population Change", "type": "nominal"}
+    }
+  }

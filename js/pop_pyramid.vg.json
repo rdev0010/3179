@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Population Pyramid",
+  "width": 500,
+  "height": 400,
+  "background": "#F3FAF9",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_pyramid.csv"
+  },
+  "transform": [
+    {
+      "fold": ["Male", "Female"],
+      "as": ["Gender", "Population"]
+    },
+    {
+      "calculate": "datum.Gender === 'Male' ? -datum.Population : datum.Population",
+      "as": "PopulationValue"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Age",
+      "type": "ordinal",
+      "axis": {"title": "Age Group"},
+      "sort": ["85+", "80-84", "75-79", "70-74", "65-69", "60-64", "55-59", "50-54", "45-49", "40-44", "35-39", "30-34", "25-29", "20-24", "15-19", "10-14", "5-9", "0-4"]
+    },
+    "x": {
+      "field": "PopulationValue",
+      "type": "quantitative",
+      "axis": {
+        "title": "Population",
+        "tickCount": 15,
+        "labelExpr": "datum.value < 0 ? -datum.value : datum.value"
+      },
+      "scale": {
+        "domain": [-8, 8] 
+      }
+    },
+    "color": {
+      "field": "Gender",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Male", "Female"],
+        "range": ["#3690c0", "#fa9fb5"]
+      },
+      "legend": {"title": "Gender"}
+    }
+  }
+}
