@@ -3,6 +3,7 @@
     "title": "Yearly Population Change",
     "width": 800,
     "height": 250,
+    "background": "#F3FAF9",
     "data": {"url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_trend.csv"},
     "layer": [
         {
@@ -14,21 +15,40 @@
         },
         {
             "mark": {
+                "type": "point",
+                "color": "red",
+                "size": 100 
+            },
+            "encoding": {
+                "x": {"field": "Year", "type": "quantitative"},
+                "y": {"field": "Population Change", "type": "quantitative"},
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Year == 2008  ||  datum.Year == 2019",
+                        "value": 1 
+                    },
+                "value": 0
+                }
+            }
+        },
+        {
+            "mark": {
                 "type": "text",
                 "align": "right",
                 "baseline": "middle",
-                "dx": -12,
+                "dx": -20,
+                "dy": 10,
                 "fontSize": 11.5,
                 "fontStyle": "italic"
             },
             "encoding": {
-                "text": {"value": "COVID-19"},
+                "text": {"field": "Annotations"},
                 "x": {"field": "Year", "type": "quantitative"},
                 "y": {"field": "Population Change", "type": "quantitative"},
                 "color": {"value": "black"},
                 "opacity": {
                     "condition": {
-                        "test": "datum.Year == 2019",
+                        "test": "datum.Year == 2008  ||  datum.Year == 2019",
                         "value": 1 
                     },
                 "value": 0
