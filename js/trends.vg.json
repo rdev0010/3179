@@ -3,11 +3,51 @@
     "title": "Yearly Population Change",
     "width": 800,
     "height": 250,
-    "background": "#F3FAF9",
     "data": {"url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_trend.csv"},
-    "mark": "line",
-    "encoding": {
-        "x": {"field": "Year", "type": "temporal"},
-        "y": {"field": "Population Change", "type": "quantitative", "title": "Population Change"}
-    }
+    "layer": [
+        {
+            "mark": {"type": "line", "tooltip": true},
+            "encoding": {
+                "x": {"field": "Year", "type": "quantitative", "axis": {"format": ""}},
+                "y": {"field": "Population Change", "type": "quantitative"}
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -12,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {"value": "COVID-19"},
+                "x": {"field": "Year", "type": "quantitative"},
+                "y": {"field": "Population Change", "type": "quantitative"},
+                "color": {"value": "black"},
+                "opacity": {
+                    "condition": {
+                        "test": "datum.Year == 2019",
+                        "value": 1 
+                    },
+                "value": 0
+                },
+                "tooltip": [
+                  {"field": "Year", "type": "quantitative"},
+                  {"field": "Population Change", "type": "quantitative", "format": ","}
+                ]
+            },
+            "params": [{
+              "name": "hover",
+              "select": {
+                "type": "point",
+                "fields": ["Year"],
+                "nearest": true,
+                "on": "pointerover",
+                "clear": "pointerout"
+              }
+            }]
+        }
+    ]
 }
