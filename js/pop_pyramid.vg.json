@@ -15,6 +15,10 @@
     {
       "calculate": "datum.Gender === 'Male' ? -datum.Population : datum.Population",
       "as": "PopulationValue"
+    },
+    {
+      "calculate": "abs(datum.PopulationValue)",
+      "as": "AbsolutePopulationValue"
     }
   ],
   "mark": "bar",
@@ -45,6 +49,10 @@
         "range": ["#1464b9", "#bba6e2"]
       },
       "legend": {"title": "Gender"}
-    }
+    },
+    "tooltip": [
+      {"field": "AbsolutePopulationValue", "type": "quantitative", "format": ",", "title": "Population (%)"},
+      {"field": "Age", "type": "ordinal", "title": "Age Group"}
+    ]
   }
 }
