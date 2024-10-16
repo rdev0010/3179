@@ -1,15 +1,19 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Population by Country of Birth",
-    "width": 500,
-    "height": 400,
-    "background": "#F3FAF9",
-    "data": {
-      "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/country_of_birth.csv"
-    },
-    "mark": "bar",
-    "encoding": {
-      "x": {"field": "Population", "type": "quantitative"},
-      "y": {"field": "Country of Birth", "type": "nominal", "sort": { "encoding": "x", "order": "ascending"}}
-    }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Population by Country of Birth",
+  "width": 500,
+  "height": 400,
+  "background": "#F3FAF9",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/country_of_birth.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Population", "type": "quantitative"},
+    "y": {"field": "Country of Birth", "type": "nominal", "sort": { "encoding": "x", "order": "ascending"}},
+    "tooltip": [
+      {"field": "Country of Birth", "type": "nominal"},
+      {"field": "Population", "type": "quantitative", "format": ","}
+    ]
   }
+}
