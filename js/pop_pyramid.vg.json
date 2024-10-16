@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Population Pyramid",
-  "width": 500,
+  "width": 550,
   "height": 300,
   "background": "#F3FAF9",
   "data": {
