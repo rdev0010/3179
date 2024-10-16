@@ -1,35 +1,40 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Population by Components of Change",
-    "width": 500,
-    "height": 300,
-    "background": "#F3FAF9",
-    "data": {
-      "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_change.csv"
-    },
-    "encoding": {
-      "theta": {"field": "Population", "type": "quantitative", "stack": true},
-      "color": {"field": "Components of Population Change", "type": "nominal"}
-    },
-    "layer": [
-      {
-        "mark": {"type": "arc", "innerRadius": 50},
-        "encoding": {
-          "theta": {"field": "Population", "type": "quantitative"},
-          "color": {"field": "Components of Population Change", "type": "nominal"},
-          "tooltip": [
-            {"field": "Components of Population Change", "type": "nominal", "title": "Component"},
-            {"field": "Population", "type": "quantitative", "format": ",", "title": "Population Change"}
-          ]
-        }
-      },
-      {
-        "mark": {"type": "text", "radius": 180},
-        "encoding": {
-          "text": {"field": "Population", "type": "quantitative"},
-          "theta": {"field": "Population", "type": "quantitative"},
-          "color": {"field": "Components of Population Change", "type": "nominal"}
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 250,
+  "background": "#F3FAF9",
+  "data": {
+    "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_change.csv"
+  },
+  "encoding": {
+    "theta": {"field": "Population", "type": "quantitative", "stack": true},
+    "color": {"field": "Components of Population Change", "type": "nominal", "title": "Factors of Population Change"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 110},
+      "encoding": {
+        "theta": {"field": "Population", "type": "quantitative"},
+        "color": {"field": "Components of Population Change", "type": "nominal"},
+        "tooltip": [
+          {"field": "Components of Population Change", "type": "nominal", "title": "Component"},
+          {"field": "Population", "type": "quantitative", "format": ",", "title": "Population Change"}
+        ]
       }
-    ]
+    },
+    {
+      "mark": {"type": "text", "radius": 130},
+      "encoding": {
+        "text": {"field": "Population", "type": "quantitative"},
+        "theta": {"field": "Population", "type": "quantitative"},
+        "color": {"field": "Components of Population Change", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {
+    "legend": {
+      "offset": -40,
+      "padding": 40
+    }
   }
+}
