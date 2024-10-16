@@ -29,7 +29,7 @@
       "field": "PopulationValue",
       "type": "quantitative",
       "axis": {
-        "title": "Population",
+        "title": "Population (%)",
         "tickCount": 15,
         "labelExpr": "datum.value < 0 ? -datum.value : datum.value"
       },
