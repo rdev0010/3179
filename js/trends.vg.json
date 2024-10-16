@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Yearly Population Change",
     "width": 550,
     "height": 200,
     "background": "#F3FAF9",
