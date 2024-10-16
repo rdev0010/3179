@@ -14,11 +14,6 @@ body {
     display: block; /* Remove any space below the image */
 }
 
-.pure-g > div {
-	margin-left: 5px; /* Adjust as needed */
-	margin-right: 5px; /* Adjust as needed */
-}
-
 #text_div {
     margin-left: 10px;
     margin-right: 10px;
