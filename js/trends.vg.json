@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Yearly Population Change",
-    "width": 500,
-    "height": 250,
+    "width": 800,
+    "height": 200,
     "background": "#F3FAF9",
     "data": {"url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_trend.csv"},
     "layer": [
