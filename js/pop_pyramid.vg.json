@@ -51,8 +51,8 @@
       "legend": {"title": "Gender"}
     },
     "tooltip": [
-      {"field": "AbsolutePopulationValue", "type": "quantitative", "format": ",", "title": "Population (%)"},
-      {"field": "Age", "type": "ordinal", "title": "Age Group"}
+      {"field": "Age", "type": "ordinal", "title": "Age Group"},
+      {"field": "AbsolutePopulationValue", "type": "quantitative", "format": ",", "title": "Population (%)"}
     ]
   }
 }
