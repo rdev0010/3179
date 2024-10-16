@@ -42,7 +42,7 @@
       "type": "nominal",
       "scale": {
         "domain": ["Male", "Female"],
-        "range": ["#4292c6", "#8c6bb1"]
+        "range": ["#1464b9", "#bba6e2"]
       },
       "legend": {"title": "Gender"}
     }
