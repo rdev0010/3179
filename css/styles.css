@@ -1,8 +1,6 @@
 html,
 body {
     background-color: #F3FAF9;
-    max-width: 1200px; /* Adjust this value for desired width */
-    margin: 0 auto; /* Center the container */
 }
 
 .banner-container {
@@ -16,9 +14,14 @@ body {
     display: block; /* Remove any space below the image */
 }
 
+#container {
+    max-width: 800px; 
+    margin: 0 auto; /* Center the container */
+}
+
 #text_div {
-    margin-left: 80px;
-    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 #meta p {
