@@ -10,6 +10,12 @@
     "theta": {"field": "Population", "type": "quantitative", "stack": true},
     "color": {"field": "Components of Population Change", "type": "nominal", "title": "Factors of Population Change"}
   },
+  "transform": [
+    {
+      "calculate": "datum.Population + '%'", 
+      "as": "PopulationWithPercent"
+    }
+  ],
   "layer": [
     {
       "mark": {"type": "arc", "innerRadius": 50, "outerRadius": 110},
@@ -18,14 +24,14 @@
         "color": {"field": "Components of Population Change", "type": "nominal"},
         "tooltip": [
           {"field": "Components of Population Change", "type": "nominal", "title": "Component"},
-          {"field": "Population", "type": "quantitative", "format": ",", "title": "Population Change"}
+          {"field": "PopulationWithPercent", "type": "nominal", "title": "Population Change"}
         ]
       }
     },
     {
       "mark": {"type": "text", "radius": 130},
       "encoding": {
-        "text": {"field": "Population", "type": "quantitative"},
+        "text": {"field": "PopulationWithPercent", "type": "nominal"},
         "theta": {"field": "Population", "type": "quantitative"},
         "color": {"field": "Components of Population Change", "type": "nominal"}
       }
