@@ -60,17 +60,6 @@
       }
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/js/ne_110m_graticules_15.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_15"}
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": null,
-        "stroke": "lightgrey"
-      }
-    },
-    {
       "data": { 
         "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/map_data.csv"
       },
@@ -97,6 +86,9 @@
         }
       }
     }
-  ]
+  ],
+  "view": {
+    "stroke": "#2e2c2c"
+  }
   
 }
