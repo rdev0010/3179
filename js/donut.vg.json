@@ -7,13 +7,29 @@
     "data": {
       "url": "https://raw.githubusercontent.com/rdev0010/3179/refs/heads/main/data/pop_change.csv"
     },
-    "mark": {"type": "arc", "innerRadius": 50},
     "encoding": {
-      "theta": {"field": "Population", "type": "quantitative"},
-      "color": {"field": "Components of Population Change", "type": "nominal"},
-      "tooltip": [
-        {"field": "Components of Population Change", "type": "nominal", "title": "Component"},
-        {"field": "Population", "type": "quantitative", "format": ",", "title": "Population Change"}
-      ]
-    }
+      "theta": {"field": "Population", "type": "quantitative", "stack": true},
+      "color": {"field": "Components of Population Change", "type": "nominal"}
+    },
+    "layer": [
+      {
+        "mark": {"type": "arc", "innerRadius": 50},
+        "encoding": {
+          "theta": {"field": "Population", "type": "quantitative"},
+          "color": {"field": "Components of Population Change", "type": "nominal"},
+          "tooltip": [
+            {"field": "Components of Population Change", "type": "nominal", "title": "Component"},
+            {"field": "Population", "type": "quantitative", "format": ",", "title": "Population Change"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "text", "radius": 180},
+        "encoding": {
+          "text": {"field": "Population", "type": "quantitative"},
+          "theta": {"field": "Population", "type": "quantitative"},
+          "color": {"field": "Components of Population Change", "type": "nominal"}
+        }
+      }
+    ]
   }
