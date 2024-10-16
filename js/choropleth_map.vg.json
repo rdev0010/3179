@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Population in Australia States per sq km",
+  "title": "Population Density",
   "width": 500,
   "height": 400,
   "background": "#F3FAF9",
