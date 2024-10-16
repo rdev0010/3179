@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Population Density",
   "width": 550,
   "height": 300,
   "background": "#F3FAF9",
